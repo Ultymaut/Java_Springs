@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coll Params</title>
+</head>
+<body>
+<main>
+    <h1>Page avec collection de paramétres</h1>
+    <hr>
+    <p th:if="${params.isEmpty()}">Pas de valeurs dans la collection !!!</p>
+    <ul th:unless="${params.isEmpty()}">
+        <li th:each="p : ${params}"><span th:text="${p}"></span></li>
+    </ul>
+</main>
+</body>
+</html>
