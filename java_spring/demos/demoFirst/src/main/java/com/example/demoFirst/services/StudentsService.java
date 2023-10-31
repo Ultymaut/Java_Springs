@@ -2,6 +2,7 @@ package com.example.demoFirst.services;
 
 import com.example.demoFirst.models.Students;
 import jakarta.annotation.PostConstruct;
+import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,7 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Data
 public class StudentsService {
+
     private List<Students> students = new ArrayList<>();
 
     @PostConstruct
@@ -23,7 +26,7 @@ public class StudentsService {
     }
 
 
-    public Students getStudentById(int id) {
+    public Students getStudentById(Integer id) {
         for (Students student : students) {
             if (student.getId() == id) {
                 return student;
@@ -31,4 +34,14 @@ public class StudentsService {
         }
         return null;
     }
+    Students createStudent(Students students){
+//        students.setId(currentId);
+//        currentId++;
+        students.add(students);
+        return students;
+    }
+
+    Students updateStudent(Integer id, Students students);
+
+    void deleteStudent(Integer id);
 }

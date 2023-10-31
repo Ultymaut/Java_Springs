@@ -1,5 +1,8 @@
 package com.example.demoFirst.models;
 
+import lombok.Data;
+
+@Data
 public class Students {
 
     private int id;
