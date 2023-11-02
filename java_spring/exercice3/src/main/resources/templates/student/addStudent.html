@@ -15,8 +15,8 @@
         <input class="input-group m-3 form-control" th:field="*{lastName}" type="text" placeholder="Nom" required>
         <input class="input-group m-3 form-control" type="number" id="age" name="age" th:field="*{age}" required placeholder="Age">
         <div class="d-flex justify-content-around">
-        <button type="button" class="btn btn-danger"> Annuler </button>
-        <button type="submit" class="btn btn-success">Envoyer</button>
+        <a type="button" class="btn btn-outline-danger" th:href="@{/}"> Annuler </a>
+        <button type="submit" class="btn btn-outline-success">Envoyer</button>
         </div>
     </form>
 </div>

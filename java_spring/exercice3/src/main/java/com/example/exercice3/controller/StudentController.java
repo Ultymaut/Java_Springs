@@ -31,7 +31,7 @@ public class StudentController {
     @PostMapping("/addStudent")
     public String addStudent(Student student){
         studentService.createStudent(student);
-        return "/student/listeStudent";
+        return "redirect:listeStudent";
     }
     @GetMapping("/listeStudent")
     public String listeStudent(Model model){
@@ -39,7 +39,7 @@ public class StudentController {
         model.addAttribute("student", students);
         return "student/listeStudent";
     }
-    @GetMapping("infoStudent/{id}")
+    @GetMapping("/infoStudent/{id}")
     public String infoStudent(Model model, @PathVariable Long id){
         Student student = studentService.getStudentById(id);
         if (student != null){
@@ -49,13 +49,13 @@ public class StudentController {
             return "home";
         }
     }
-    @PostMapping("editStudent/{id}")
+    @PostMapping("/editStudent/{id}")
     public String editStudent(@PathVariable Long id, @ModelAttribute Student student){
         studentService.updateStudent(id,student);
         return "student/listeStudent";
     }
 
-    @PostMapping("delStudent/{id}")
+    @PostMapping("/delStudent/{id}")
     public String delStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
         return "home";
