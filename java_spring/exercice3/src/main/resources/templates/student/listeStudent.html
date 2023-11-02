@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <span th:replace="~{home :: link}"> </span>
+    <title> Liste des étudiants</title>
+</head>
+<body>
+<span th:replace="~{home :: Navbar}"> </span>
+
+<div class="container">
+<h1 class="d-flex justify-content-center mt-5"> La liste des étudiants</h1>
+    <div th:if="${student.isEmpty()}" class="d-flex justify-content-center">
+        <h2 class="d-flex justify-content-center mt-5"> Aucun étudiants </h2>
+    </div>
+    <div  th:unless="${student.isEmpty()}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Age</th>
+            <th scope="col">Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${student}">
+            <th scope="row" th:text="${student.id}"></th>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.age}"></td>
+            <td> Action </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<span th:replace="~{home :: footer}"> </span>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<h1>Home page</h1>
+<hr>
+<a th:href="@{/second}">Liens page B</a>
+
+<th:block th:fragment="paragraphe">
+<p> Ceci est mon joli paragraphe</p>
+</th:block>
+<a th:href="@{/person(personName='titi')}">lien page person</a>
+</body>
+</html>

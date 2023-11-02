@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Page B</h1>
+<hr>
+<a th:href="@{/}">Home Page</a>
+
+<span th:replace="~{home :: paragraphe}"></span>
+
+<hr>
+
+<form  th:action="@{/submitForm}" th:object="${personSubmit}"  method="post">
+        <input th:field="*{name}" type="text" placeholder="mon texte" required>
+    <button type="submit">Mon Bouton</button>
+</form>
+
+</body>
+</html>
