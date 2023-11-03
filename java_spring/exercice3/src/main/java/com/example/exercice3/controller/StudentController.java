@@ -1,5 +1,6 @@
 package com.example.exercice3.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import com.example.exercice3.model.Student;
 import com.example.exercice3.service.IStudentService;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class StudentController {
 
     private final IStudentService studentService;
-
-    @Autowired
-    public StudentController(IStudentService studentService){
-        this.studentService = studentService;
-    }
+//    @Autowired
+//    public StudentController(IStudentService studentService){
+//        this.studentService = studentService;
+//    }
     @GetMapping
     public String homePage(){
         return "home";
@@ -35,28 +36,23 @@ public class StudentController {
     }
     @GetMapping("/listeStudent")
     public String listeStudent(Model model){
-        List<Student> students = studentService.getAllStudents();
-        model.addAttribute("student", students);
+        model.addAttribute("student", studentService.getAllStudents());
         return "student/listeStudent";
     }
     @GetMapping("/infoStudent/{id}")
     public String infoStudent(Model model, @PathVariable Long id){
         Student student = studentService.getStudentById(id);
-        if (student != null){
-            model.addAttribute("student", student);
-            return "student/infoStudent";
-        }else {
-            return "home";
-        }
+        model.addAttribute("student", student);
+        return "student/infoStudent";
     }
     @PostMapping("/editStudent/{id}")
     public String editStudent(@PathVariable Long id, @ModelAttribute Student student){
         studentService.updateStudent(id,student);
-        return "student/listeStudent";
+        return "home";
     }
 
-    @PostMapping("/delStudent/{id}")
-    public String delStudent(@PathVariable Long id){
+    @GetMapping("/delStudent/{id}")
+    public String delStudent(@PathVariable("id") Long id){
         studentService.deleteStudent(id);
         return "home";
     }

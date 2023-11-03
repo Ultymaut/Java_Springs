@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <span th:replace="~{home :: link}"> </span>
+    <title> Modif d'un étudiant</title>
 </head>
 <body>
+<span th:replace="~{home :: Navbar}"> </span>
+
+<div class="container mt-5">
+    <h1 class="justify-content-center d-flex"> Modification d'un étudiant</h1>
+
+    <form class="p-5" th:action="@{/editStudent/{id} (id=${student.id})}" th:object="${student}"  method="post">
+        <input class="input-group form-control m-3" th:field="*{firstName}" type="text" placeholder="Prénom" required>
+        <input class="input-group m-3 form-control" th:field="*{lastName}" type="text" placeholder="Nom" required>
+        <input class="input-group m-3 form-control" type="number" id="age" name="age" th:field="*{age}" required placeholder="Age">
+        <div class="d-flex justify-content-around">
+            <a type="button" class="btn btn-outline-danger" th:href="@{/}"> Annuler </a>
+            <button type="submit" class="btn btn-outline-success">Envoyer</button>
+        </div>
+    </form>
+</div>
+
+<span th:replace="~{home :: footer}"> </span>
 </body>
 </html>

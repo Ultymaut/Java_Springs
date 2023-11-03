@@ -39,16 +39,19 @@
 <h1 class="justify-content-center d-flex mb-5">
     Home Page
 </h1>
-<div class="d-flex justify-content-center">
-    <img th:src="@{/imgExo3.jpg}" alt="img">
+<div class="d-flex justify-content-center" style="height: 140vh">
+    <img th:src="@{/imgExo3.jpg}" class="h-50" alt="img">
 </div>
 </div>
 
 <th:block th:fragment="footer">
-    <footer class="mt-5">
-    <div class="d-flex justify-content-center align-content-center">
-        <p class=""> Ceci est le footer oui je n'avais pas d'inspi</p>
-    </div>
+    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
     </footer>
 </th:block>
 </body>
